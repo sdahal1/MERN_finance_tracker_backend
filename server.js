@@ -17,7 +17,8 @@ app.use(express.urlencoded({extended:true}))
 //     origin: 'https://mern-finance-tracker-frontend.vercel.app'
 // }));
 
-app.use(cors({
+app.set("trust proxy", 1); //Trust the first proxy
+const corsOptions = {
     credentials: true,
     origin: function (originVal, callback) {
       // Check if the request origin is in the allowed origins list or if it's not provided (e.g., same-origin requests)
@@ -28,12 +29,13 @@ app.use(cors({
       }
     },
     allowedHeaders: ['Content-Type', 'Authorization']
-  }));
+  }
+app.use(cors(corsOptions));
 
 
 // app.use(cookies({secure: true, sameSite: 'none'})) //Now our app has the abilities to send and read cookies with each request/response
 
-app.use(cookies({secure: true, sameSite: 'none'})) //Now our app has the abilities to send and read cookies with each request/response
+app.use(cookies({secure: true, sameSite: 'None'})) //Now our app has the abilities to send and read cookies with each request/response
 
 
 require("./config/mongoose.config")
