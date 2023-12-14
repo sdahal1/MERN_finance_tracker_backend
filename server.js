@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended:true}))
 //     origin: 'https://mern-finance-tracker-frontend.vercel.app'
 // }));
 
-app.set("trust proxy", 1); //Trust the first proxy
+app.enable("trust proxy"); //Trust the first proxy
 const corsOptions = {
     credentials: true,
     origin: function (originVal, callback) {
