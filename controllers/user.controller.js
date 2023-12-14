@@ -69,9 +69,9 @@ class UserController {
         res
             .cookie("usertoken", userToken, secret, {
                 httpOnly: true,
-                sameSite: "none",
-                secure: true,
-                maxAge: 1000 * 60 * 60 * 48
+                // sameSite: "none",
+                // secure: true,
+                // maxAge: 1000 * 60 * 60 * 48
             })
             .json({ msg: "success!", user:user });
     }
