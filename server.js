@@ -28,7 +28,8 @@ const corsOptions = {
         callback(new Error('Not allowed by CORS'));
       }
     },
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['Set-Cookie']
   }
 app.use(cors(corsOptions));
 
