@@ -31,7 +31,7 @@ app.use(cors({
   }));
 
 
-app.use(cookies()) //Now our app has the abilities to send and read cookies with each request/response
+app.use(cookies({secure: true})) //Now our app has the abilities to send and read cookies with each request/response
 
 
 require("./config/mongoose.config")
