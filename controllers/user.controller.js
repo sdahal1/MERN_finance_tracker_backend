@@ -98,7 +98,7 @@ class UserController {
 
     getLoggedInUser= (req, res) =>{
         const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
-    
+        console.log("in getloggedinuser function, req.cookies.usertoken is this: ", req.cookies.usertoken)
         User.findById(decodedJWT.payload.id)
           .then(user => res.json({results:user}))
           .catch(err => res.json(err));
