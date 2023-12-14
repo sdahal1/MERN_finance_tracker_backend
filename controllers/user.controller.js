@@ -68,7 +68,7 @@ class UserController {
         // note that the response object allows chained calls to cookie and json
         res
             .cookie("usertoken", userToken, secret, {
-                httpOnly: true,
+                httpOnly: false,
                 sameSite: "none"
             })
             .json({ msg: "success!", user:user });
