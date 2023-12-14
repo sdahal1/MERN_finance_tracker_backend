@@ -31,6 +31,8 @@ app.use(cors({
   }));
 
 
+// app.use(cookies({secure: true, sameSite: 'none'})) //Now our app has the abilities to send and read cookies with each request/response
+
 app.use(cookies({secure: true, sameSite: 'none'})) //Now our app has the abilities to send and read cookies with each request/response
 
 
