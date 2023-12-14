@@ -64,7 +64,7 @@ class UserController {
             id: user._id,
             firstName: user.firstName
         }, secret);
-     
+        console.log("USER TOKEN IS THIS IN THE LOGIN CONTROLLER", userToken)
         // note that the response object allows chained calls to cookie and json
         res
             .cookie("usertoken", userToken, secret, {
