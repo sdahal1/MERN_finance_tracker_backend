@@ -11,23 +11,23 @@ const port = 5001;
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true})) 
-app.use(cors({
-    credentials:true,
-    // origin: 'http://localhost:3000'
-    origin: 'https://mern-finance-tracker-frontend.vercel.app'
-}));
-
 // app.use(cors({
-//     credentials: true,
-//     origin: function (origin, callback) {
-//       // Check if the request origin is in the allowed origins list or if it's not provided (e.g., same-origin requests)
-//       if (!origin || allowedOrigins.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error('Not allowed by CORS'));
-//       }
-//     }
-//   }));
+//     credentials:true,
+//     // origin: 'http://localhost:3000'
+//     origin: 'https://mern-finance-tracker-frontend.vercel.app'
+// }));
+
+app.use(cors({
+    credentials: true,
+    origin: function (originVal, callback) {
+      // Check if the request origin is in the allowed origins list or if it's not provided (e.g., same-origin requests)
+      if (!originVal || allowedOrigins.includes(originVal)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  }));
 
 
 app.use(cookies()) //Now our app has the abilities to send and read cookies with each request/response

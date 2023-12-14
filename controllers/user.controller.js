@@ -24,7 +24,7 @@ class UserController {
                             }, secret);
                             res
                                 .cookie("usertoken", userToken, secret, {
-                                    httpOnly: true
+                                    httpOnly: false
                                 })
                                 .json({ msg: "success!", user: user });
                         })
@@ -68,7 +68,7 @@ class UserController {
         // note that the response object allows chained calls to cookie and json
         res
             .cookie("usertoken", userToken, secret, {
-                httpOnly: true
+                httpOnly: false
             })
             .json({ msg: "success!", user:user });
     }
@@ -84,7 +84,7 @@ class UserController {
     //             .then(passwordIsValid => {
     //               if(passwordIsValid) {
     //                 res
-    //                   .cookie("usertoken", jwt.sign({_id: user._id}, secret), {httpOnly: true})
+    //                   .cookie("usertoken", jwt.sign({_id: user._id}, secret), {httpOnly: false})
     //                   .json({msg: "success!"});
     //               } else {
     //                 res.json({msg: "invalid login attempt, incorrect password"});
