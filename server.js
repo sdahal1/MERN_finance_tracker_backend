@@ -29,7 +29,7 @@ const corsOptions = {
       }
     },
     allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Set-Cookie']
+    // exposedHeaders: ['Set-Cookie']
   }
 app.use(cors(corsOptions));
 
@@ -38,7 +38,7 @@ app.use(cors(corsOptions));
 
 app.use(cookies({secure: true, sameSite: 'lax', maxAge: 1000 * 60 * 60 * 48})) //Now our app has the abilities to send and read cookies with each request/response
 
-console.log("server say wha")
+// console.log("server say wha")
 require("./config/mongoose.config")
 
 
