@@ -73,7 +73,7 @@ class UserController {
                 // secure: true,
                 // maxAge: 1000 * 60 * 60 * 48
             })
-            .json({ msg: "success!", user:user });
+            .json({ msg: "success!", anotha:"who dis", user:user });
     }
 
     //this is the same way to do login without the aync await
