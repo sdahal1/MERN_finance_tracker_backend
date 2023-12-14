@@ -29,7 +29,7 @@ const corsOptions = {
       }
     },
     allowedHeaders: ['Content-Type', 'Authorization'],
-    // exposedHeaders: ['Set-Cookie']
+    exposedHeaders: ['Set-Cookie']
   }
 app.use(cors(corsOptions));
 
