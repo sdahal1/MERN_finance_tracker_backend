@@ -63,7 +63,7 @@ class UserController {
         const userToken = jwt.sign({
             id: user._id,
             firstName: user.firstName
-        }, process.env.SECRET_KEY);
+        }, secret);
      
         // note that the response object allows chained calls to cookie and json
         res
