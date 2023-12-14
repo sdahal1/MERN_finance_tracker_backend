@@ -24,7 +24,7 @@ class UserController {
                             }, secret);
                             res
                                 .cookie("usertoken", userToken, secret, {
-                                    httpOnly: false
+                                    httpOnly: true
                                 })
                                 .json({ msg: "success!", user: user });
                         })
@@ -68,7 +68,7 @@ class UserController {
         // note that the response object allows chained calls to cookie and json
         res
             .cookie("usertoken", userToken, secret, {
-                httpOnly: false
+                httpOnly: true
             })
             .json({ msg: "success!", user:user });
     }
@@ -84,7 +84,7 @@ class UserController {
     //             .then(passwordIsValid => {
     //               if(passwordIsValid) {
     //                 res
-    //                   .cookie("usertoken", jwt.sign({_id: user._id}, secret), {httpOnly: false})
+    //                   .cookie("usertoken", jwt.sign({_id: user._id}, secret), {httpOnly: true})
     //                   .json({msg: "success!"});
     //               } else {
     //                 res.json({msg: "invalid login attempt, incorrect password"});
@@ -98,7 +98,7 @@ class UserController {
 
     getLoggedInUser= (req, res) =>{
         const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
-        console.log("in getloggedinuser function, req.cookies.usertoken is this: ", req.cookies.usertoken)
+        console.log("in getloggedinuser function, req.cookies.usertoken is this:", req.cookies.usertoken)
         User.findById(decodedJWT.payload.id)
           .then(user => res.json({results:user}))
           .catch(err => res.json(err));
