@@ -8,7 +8,7 @@ const allowedOrigins = ['http://localhost:3000', 'https://mern-finance-tracker-f
 
 const app = express(); 
 const port = 5001;
-
+console.log("we in the server.js");
 app.use(express.json())
 app.use(express.urlencoded({extended:true})) 
 app.use(cors({
@@ -21,6 +21,8 @@ app.use(cors({
       }
   }
 }));
+app.use(cookies({secure: true, sameSite: 'lax', maxAge: 1000 * 60 * 60 * 48}));
+
 
 // app.set("trust proxy",1); //Trust the first proxy
 // const corsOptions = {
@@ -40,8 +42,6 @@ app.use(cors({
 
 
 // app.use(cookies({secure: true, sameSite: 'none'})) //Now our app has the abilities to send and read cookies with each request/response
-
-app.use(cookies({secure: true, sameSite: 'lax', maxAge: 1000 * 60 * 60 * 48})) //Now our app has the abilities to send and read cookies with each request/response
 
 // console.log("server say wha")
 require("./config/mongoose.config")
