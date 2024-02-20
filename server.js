@@ -12,10 +12,14 @@ const port = 5001;
 app.use(express.json())
 app.use(express.urlencoded({extended:true})) 
 app.use(cors({
-    credentials:true,
-    // origin: 'http://localhost:3000'
-    // origin: 'https://mern-finance-tracker-frontend.vercel.app'
-    origin: allowedOrigins
+  credentials: true,
+  origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+  }
 }));
 
 // app.set("trust proxy",1); //Trust the first proxy
