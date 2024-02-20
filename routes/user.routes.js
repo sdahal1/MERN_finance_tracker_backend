@@ -16,5 +16,5 @@ module.exports = (app)=>{
     app.get("/api/getloggedinuser", authenticate, UserController.getLoggedInUser)
     app.get("/api/logout", authenticate, UserController.logout)
 
-    
+
 }
