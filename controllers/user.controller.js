@@ -6,7 +6,7 @@ const {secret} = require("../config/jwt");
 
 class UserController {
     helloWorldApi(req,res){
-        res.json("Hello world from the /api route in feb 20 doe")
+        res.json("Hello world from the /api route in feb 20 10:48am doe")
     }
     register(req, res) {
         console.log("req.body on register-->", req.body)
