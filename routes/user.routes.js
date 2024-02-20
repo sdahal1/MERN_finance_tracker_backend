@@ -3,7 +3,6 @@ const {authenticate}= require('../config/jwt');
 
 module.exports = (app)=>{
     //admin routes for viewing all users in system and deleting users accounts
-    app.get("/", UserController.helloWorld)
     app.get("/api", UserController.helloWorldApi)
     app.get("/api/users", UserController.getAllUsers)
     app.delete("/api/users/delete/:id", UserController.deleteUser)

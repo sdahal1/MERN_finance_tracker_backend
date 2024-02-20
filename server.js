@@ -11,27 +11,28 @@ const port = 5001;
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true})) 
-// app.use(cors({
-//     credentials:true,
-//     // origin: 'http://localhost:3000'
-//     origin: 'https://mern-finance-tracker-frontend.vercel.app'
-// }));
+app.use(cors({
+    credentials:true,
+    // origin: 'http://localhost:3000'
+    // origin: 'https://mern-finance-tracker-frontend.vercel.app'
+    origin: allowedOrigins
+}));
 
-app.set("trust proxy",1); //Trust the first proxy
-const corsOptions = {
-    credentials: true,
-    origin: function (originVal, callback) {
-      // Check if the request origin is in the allowed origins list or if it's not provided (e.g., same-origin requests)
-      if (!originVal || allowedOrigins.includes(originVal)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Set-Cookie']
-  }
-app.use(cors(corsOptions));
+// app.set("trust proxy",1); //Trust the first proxy
+// const corsOptions = {
+//     credentials: true,
+//     origin: function (originVal, callback) {
+//       // Check if the request origin is in the allowed origins list or if it's not provided (e.g., same-origin requests)
+//       if (!originVal || allowedOrigins.includes(originVal)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     exposedHeaders: ['Set-Cookie']
+//   }
+// app.use(cors(corsOptions));
 
 
 // app.use(cookies({secure: true, sameSite: 'none'})) //Now our app has the abilities to send and read cookies with each request/response
